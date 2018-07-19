@@ -1,0 +1,548 @@
+$primary-color1: #112052
+$primary-color2: #CE1531
+$primary-color3: #E94E1B
+$primary-color4: #F39200
+$primary-color5: #559E54
+$background-color: white
+
+$font-color1: #112052
+$font-color2: white
+
+$font-weight-semibold: 300 
+$font-weight-bold: 400
+
+$border-radius: 7px
+
+
+/** STYLING
+ --------------------------------------------------------------------------------*/
+
+
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+    
+body
+  font-family: 'Roboto Slab', sans-serif
+  margin: 0
+  padding: 0
+  color: $font-color1
+  background-color: $primary-color1
+  overflow: hidden
+
+input
+  outline: none
+  border: none
+  font-family: 'Roboto Slab', sans-serif
+  font-weight: $font-weight-semibold
+  min-height: 60px
+
+input::placeholder
+  color: $font-color2
+
+textarea
+  overflow-y: auto
+  resize: none
+  outline: none
+  border: none
+  font-family: 'Roboto Slab', sans-serif
+  font-weight: $font-weight-semibold
+
+textarea::placeholder 
+  color: $font-color1
+
+p
+  margin: 0
+  padding: 0
+
+.wrapper 
+  display: grid
+  grid-template-columns: 2fr 12fr
+
+  
+/** INFO
+ --------------------------------------------------------------------------------*/
+
+
+.infoWrapper
+  display: none
+  position: fixed
+  z-index: 1
+  padding: 0
+  margin: 0
+  top: 0
+  left: 0
+  width: 100vw
+  height: 100vh
+  background-color: black
+  opacity: 0.5
+
+.infoMessage
+  display: none
+  align-items: center
+  justify-content: center
+  position: fixed
+  z-index: 2
+  top: 35%
+  left: 35%
+  width: 30vw
+  height: 30vh
+  font-size: 300%
+  background-color: white
+  border-radius: $border-radius $border-radius $border-radius $border-radius
+
+
+/** TASK LIST
+ --------------------------------------------------------------------------------*/
+
+
+.taskListWrapper
+  height: 100vh
+  min-width: 240px
+  grid-column: 1 / 2
+  display: grid
+  grid-template-rows: 2fr 50fr 1fr 2fr 2fr
+  background-color: $primary-color1
+
+.taskListTitel
+  display: flex
+  align-items: center
+  min-height: 60px
+  grid-column: 1 / 2
+  grid-row: 1 / 2
+  color: $font-color2
+  background-color: $primary-color1
+  font-size: 1.4em
+  font-weight: $font-weight-bold
+  padding: 5%
+
+  img
+    height: 50px
+    margin-right: 20px
+
+.logoRotate
+  animation-name: logoRotateAnim
+  animation-duration: 2s
+  animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1)
+
+@keyframes logoRotateAnim 
+  to
+    transform: rotateZ(720deg)
+
+.taskListEntryContainer
+  min-height: 380px
+  grid-column: 1 / 2
+  grid-row: 2 / 3
+  overflow-y: auto
+  border-radius: 0px $border-radius 0px 0px
+  background-color: $background-color
+
+.taskListEntry
+  display: grid
+  height: 10%
+  min-height: 80px
+  padding: 0 5%
+  overflow: hidden
+  grid-template-columns: 6fr 1fr 1fr
+  grid-template-rows: 1fr 1fr
+  cursor: pointer
+  border-bottom: solid lighten($primary-color1, 70%) 1px
+
+.taskListEntryDone 
+  display: grid
+  height: 0%
+  min-height: 0px
+  padding: 0 5%
+  overflow: hidden
+  grid-template-columns: 6fr 1fr 1fr
+  grid-template-rows: 1fr 1fr
+  cursor: pointer
+  border-bottom: solid lighten($primary-color1, 70%) 1px
+  background-color: $primary-color5
+  color: darken($primary-color5, 70%)
+  transition: height 0.5s ease, min-height 0.25s, background-color 0.25s
+
+.taskListEntryDelete 
+  display: grid
+  height: 0%
+  min-height: 0px
+  padding: 0 5%
+  overflow: hidden
+  grid-template-columns: 6fr 1fr 1fr
+  grid-template-rows: 1fr 1fr
+  cursor: pointer
+  border-bottom: solid lighten($primary-color1, 70%) 1px
+  background-color: $primary-color2
+  color: darken($primary-color2, 70%)
+  transition: height 0.5s ease, min-height 0.25s, background-color 0.25s
+
+.randomTask 
+  display: grid
+  height: 10%
+  min-height: 80px
+  padding: 0 5%
+  overflow: hidden
+  grid-template-columns: 6fr 1fr 1fr
+  grid-template-rows: 1fr 1fr
+  cursor: pointer
+  border-bottom: solid lighten($primary-color2, 70%) 1px
+  background-color: $primary-color2
+  color: $font-color2
+
+  .taskEntryDoneBtn
+    grid-column: 3 / 4
+    grid-row: 1 / 3
+    background-image: url(img/check_white.svg)
+    background-position: center
+    background-size: 55%
+    background-repeat: no-repeat
+
+.taskListEntryTitle
+  grid-column: 1 / 2
+  grid-row: 1 / 2
+  align-self: flex-end
+  font-size: 1.0em
+  text-overflow: ellipsis
+  white-space: nowrap
+  overflow: hidden
+
+.taskListEntryContent
+  grid-column: 1 / 2
+  grid-row: 2 / 3
+  height: 20px
+  font-size: 0.9em
+  font-weight: $font-weight-semibold
+  text-overflow: ellipsis
+  white-space: nowrap
+  overflow: hidden
+
+.taskEntryDoneBtn
+  grid-column: 3 / 4
+  grid-row: 1 / 3
+  background-image: url(img/check.svg)
+  background-position: center
+  background-size: 55%
+  background-repeat: no-repeat
+
+.taskEntryDeleteBtn
+  grid-column: 2 / 3
+  grid-row: 1 / 3
+  background-image: url(img/trash.svg)
+  background-position: center
+  background-size: 55%
+  background-repeat: no-repeat
+
+.scrollDown
+  display: flex
+  align-items: center
+  justify-content: center
+  grid-column: 1 / 2
+  grid-row: 3 / 4
+  padding: 2% 5%
+  background-color: $background-color
+
+  img
+    display: none
+    height: 8px
+
+.diceButton 
+  display: flex
+  min-height: 40px
+  align-items: center
+  justify-content: center
+  grid-column: 1 / 2
+  grid-row: 4 / 5
+  background-color: $primary-color2
+  cursor: pointer
+  background-position: center
+  background-size: 40%
+  background-repeat: no-repeat
+
+.taskInfo
+  display: flex
+  flex-wrap: wrap
+  min-height: 80px
+  align-items: center
+  justify-content: center
+  text-align: center
+  grid-column: 1 / 2
+  grid-row: 5 / 6
+  background-color: $primary-color3
+  color: $font-color1
+  font-weight: $font-weight-semibold
+  font-size: 0.8em
+  padding: 3%
+
+  .taskAll
+    width: 100%
+  .taskDone
+    width: 100%
+  .taskDelete
+    width: 100%
+
+/** TASK CONTENT
+ --------------------------------------------------------------------------------*/
+
+
+.taskContentWrapper
+  height: 100vh
+  min-width: 580px
+  grid-column: 2 / 3
+  padding: 10% 20%
+  background-color: $primary-color1
+
+.taskContentTitelInput
+  height: 10%
+  width: 100%
+  font-size: 1.4em
+  color: $font-color2
+  padding-left: 5%
+  background-color: $primary-color2
+  margin: auto
+  border-radius: $border-radius $border-radius 0px 0px
+
+.taskContentInput
+  height: 90%
+  width: 100%
+  min-height: 200px
+  font-size: 1.0em
+  font-weight: $font-weight-bold
+  padding: 5%
+  border-radius: 0px 0px 0px $border-radius
+
+.createTaskBtn
+  position: relative
+  top: -4px
+  height: 25px
+  width: 50px
+  float: right
+  background: $primary-color5
+  border-radius: 0px 0px $border-radius $border-radius
+  border: none
+  outline: none
+  cursor: pointer
+
+.editTaskBtn
+  position: relative
+  top: -4px
+  height: 25px
+  width: 50px
+  float: right
+  background: $primary-color5
+  border-radius: 0px 0px $border-radius $border-radius
+  border: none
+  outline: none
+  cursor: pointer
+
+.clearTaskBtn
+  position: relative
+  top: -4px
+  height: 25px
+  width: 50px
+  float: right
+  background: $primary-color2
+  border-radius: 0px 0px $border-radius $border-radius
+  border: none
+  outline: none
+  cursor: pointer
+  margin-right: 0.15em
+
+.backBtn
+  position: relative
+  top: -4px
+  height: 25px
+  width: 50px
+  float: right
+  background: $primary-color4
+  border-radius: 0px 0px $border-radius $border-radius
+  border: none
+  outline: none
+  cursor: pointer
+  margin-right: 0.15em
+
+
+@media only screen and (max-device-width: 480px) 
+    
+  .wrapper
+    display: grid
+    grid-template-columns: 1fr
+
+  body
+    background-color: $background-color
+  
+
+  /** TASKLIST
+   --------------------------------------------------------------------------------*/
+  
+
+  .taskListWrapper
+    height: 100vh
+    width: 100vw
+    grid-column: 1 / 2
+    display: grid
+    grid-template-rows: 2fr 50fr 1fr 2fr 2fr
+    background-color: $primary-color1
+
+  .taskListEntryContainer
+    border-radius: 0px 0px 0px 0px
+
+  .taskListTitel
+    display: flex
+    align-items: center
+    min-height: 60px
+    grid-column: 1 / 2
+    grid-row: 1 / 2
+    color: $font-color2
+    background-color: $primary-color1
+    font-size: 1.4em
+    font-weight: $font-weight-bold
+    padding: 5%
+
+    img
+      height: 50px
+      margin-right: 20px
+
+  //NEW BUTTON IN TITLE FOR CREATE TASK
+  .createTaskTitleBtn
+    height: 60px
+    width: 60px
+    position: absolute
+    right: 0px
+    top: 0px
+    cursor: pointer
+    background-image: url(img/plus.svg)
+    background-position: center
+    background-size: 25%
+    background-repeat: no-repeat
+    background-color: $primary-color5
+
+  .taskEntryDoneBtn
+    grid-column: 3 / 4
+    grid-row: 1 / 3
+    background-image: url(img/check.svg)
+    background-position: center
+    background-size: 40%
+    background-repeat: no-repeat
+
+  .taskEntryDeleteBtn
+    grid-column: 2 / 3
+    grid-row: 1 / 3
+    background-image: url(img/trash.svg)
+    background-position: center
+    background-size: 40%
+    background-repeat: no-repeat
+
+  .randomTask 
+    display: grid
+    height: 10%
+    min-height: 80px
+    padding: 0 5%
+    overflow: hidden
+    grid-template-columns: 6fr 1fr 1fr
+    grid-template-rows: 1fr 1fr
+    cursor: pointer
+    border-bottom: solid lighten($primary-color2, 70%) 1px
+    background-color: $primary-color2
+    color: $font-color2
+
+    .taskEntryDoneBtn
+      grid-column: 3 / 4
+      grid-row: 1 / 3
+      background-image: url(img/check_white.svg)
+      background-position: center
+      background-size: 40%
+      background-repeat: no-repeat
+
+
+  /** TASKCONTENT
+    --------------------------------------------------------------------------------*/
+
+  
+  .taskContentWrapper
+    height: 100vh
+    min-width: 0px
+    grid-column: 1 / 2
+    padding: 0% 0%
+    display: grid
+    grid-template-rows: 2fr 50fr 1fr 2fr 2fr
+    background-color: $background-color
+
+  .taskContentTitelInput
+    height: 10%
+    grid-row: 1 / 2
+    font-size: 1.4em
+    color: $font-color2
+    padding-left: 5%
+    background-color: $primary-color2
+    margin: auto
+    border-radius: 0px 0px 0px 0px
+
+  .taskContentInput
+    height: 85%
+    width: 100%
+    grid-row: 2 / 3
+    min-height: 200px
+    font-size: 1.0em
+    font-weight: $font-weight-bold
+    padding: 5%
+    border-radius: 0px 0px 0px 0px
+
+  .createTaskBtn
+    grid-row: 5 / 6
+    position: static
+    float: none
+    bottom: 0px
+    height: 5%
+    width: 50px
+    float: right
+    background: $primary-color5
+    border-radius: $border-radius $border-radius 0px 0px 
+    border: none
+    outline: none
+    cursor: pointer
+
+  .clearTaskBtn
+    grid-row: 5 / 6
+    position: static
+    float: none
+    bottom: 0px
+    height: 5%
+    width: 50px
+    float: right
+    background: $primary-color2
+    border-radius: $border-radius $border-radius 0px 0px 
+    border: none
+    outline: none
+    cursor: pointer
+    margin-right: 0.15em
+
+  .backBtn
+    grid-row: 5 / 6
+    position: static
+    float: none
+    bottom: 0px
+    height: 5%
+    width: 50px
+    float: right
+    background: $primary-color4
+    border-radius: $border-radius $border-radius 0px 0px 
+    border: none
+    outline: none
+    cursor: pointer
+    margin-right: 0.15em
+
+  .editTaskBtn
+    grid-row: 5 / 6
+    position: static
+    float: none
+    bottom: 0px
+    height: 5%
+    width: 50px
+    float: right
+    background: $primary-color5
+    border-radius: $border-radius $border-radius 0px 0px
+    border: none
+    outline: none
+    cursor: pointer
+

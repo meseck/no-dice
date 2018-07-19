@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>No Dice! - ToDo List</title>
+    <meta name="description" content="No Dice! - ToDo List">
+
+    <meta name="author" content="Fool's Mate">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="infoWrapper"></div>
+    <div class="infoMessage">rest note</div>
+
+    <div class="wrapper">
+
+        <div class="taskListWrapper">
+
+            <div class="taskListTitel">
+                <img src="img/no-dice-logo.svg">No Dice!
+            </div>
+
+            <div class="taskListEntryContainer"></div>
+
+            <div class="scrollDown">
+                <img src="img/arrow.svg">
+            </div>
+
+            <div class="diceButton">
+                Roll the Dice!
+                <img src="img/random.svg" style="height: 15px; padding-left: 5px">
+            </div>
+            <div class="taskInfo">
+                <span class="taskAll">Tasks: 0</span>
+                <br>
+                <span class="taskDone">Tasks done: 0</span>
+                <br>
+                <span class="taskDelete">Tasks deleted: 0</span>
+            </div>
+
+        </div>
+
+        <div class="taskContentWrapper">
+
+            <input class="taskContentTitelInput" type="text" placeholder="New Task">
+            <textarea class="taskContentInput" type="text" placeholder="Note"></textarea>
+
+            <button class="createTaskBtn">
+                <img src="img/check.svg" style="height: 15px">
+            </button>
+
+            <button class="editTaskBtn" style="display: none">
+                <img src="img/edit.svg" style="height: 15px">
+            </button>
+
+            <button class="clearTaskBtn">
+                <img src="img/eraser.svg" style="height: 15px">
+            </button>
+
+            <button class="backBtn" style="display: none">
+                <img src="img/back.svg" style="height: 13px">
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="libraries/jquery-3.3.1.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
